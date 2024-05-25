@@ -1,0 +1,58 @@
+<Progreso>:
+	name: "progreso"
+
+	BoxLayout:
+
+		Image:
+			source: "Fondo_Progreso.png"
+
+			Label:
+				text: "Tu Progreso"
+				pos: 150, 450
+				color: (0.071, 0.416, 0.427) 
+				font_size: 30
+				font_name: "MulledWineSeason.otf"
+
+			Label:
+				text: "¿Has bebido"
+				pos: 150, 350
+				color: (0.071, 0.416, 0.427) 
+				font_size: 30
+				font_name: "MulledWineSeason.otf"
+
+			Label:
+				text: "agua?"
+				pos: 150, 310
+				color: (0.071, 0.416, 0.427) 
+				font_size: 30
+				font_name: "MulledWineSeason.otf"
+
+			Button:
+				text: "0 / 8"
+				pos: 80, 230
+				color: (0.071, 0.416, 0.427) 
+				background_color: (212, 232, 232)
+				font_size: 30
+				size_hint: None, None
+				width: 110
+				height: 40
+				font_name: "MulledWineSeason.otf"
+				on_press: root.cantidad_agua(self)
+				
+			Button:
+				background_normal: "Home.png"
+				background_down: "Home.png"
+				pos: 20, 30
+				on_press: root.pagina_principal()
+
+			Button:
+				background_normal: "Recordatorio.png"
+				background_down: "Recordatorio.png"	
+				on_press: root.pagina_recordatorio()			
+				pos: 140, 30
+
+			Button:
+				background_normal: "Progreso.png"
+				background_down: "Progreso.png"
+				on_press: root.pagina_progreso()			
+				pos: 245, 30
