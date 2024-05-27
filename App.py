@@ -11,7 +11,7 @@ from plyer import notification
 
 Window.size = (370, 660)
 
-# Estructura de la app
+# Creacion de las interfaces
 
 Builder.load_string("""
 
@@ -21,12 +21,16 @@ Builder.load_string("""
     Progreso:
 """)
 
+# Archivo de cada interfaz
+
 Builder.load_file("Home.kv")
 Builder.load_file("Recordatorio.kv")
 Builder.load_file("Progreso.kv")
 
 class ScreenManagement(ScreenManager):
     pass
+
+# Funciones para desplazarse en cada interfaz
 
 class Funciones(BoxLayout, Screen):
 	def pagina_principal(self):
@@ -37,6 +41,8 @@ class Funciones(BoxLayout, Screen):
 
 	def pagina_progreso(self):
 		self.manager.current = "progreso"
+
+# Estructura de la app
 
 class Home(Funciones):
 	pass
@@ -57,27 +63,35 @@ class Recordatorio(Funciones):
 	    	if len(tiempo) > 6:
 	    		tiempo = "00.00.00"
 
-	    	Clock.schedule_interval(self.enviar_notificacion, int(tiempo) * int(tiempo))
+	    	Clock.schedule_interval(self.enviar_notificacion, 
+	    		int(tiempo) * int(tiempo))
 
     	except Exception:
     		print("Error")
 
 class Progreso(Funciones):
 	def cantidad_agua(self, button):
-		button.text = f"{str(int(button.text[0:2]) + 1)} / 8"			
+
+		if int(button.text[0:2]) == 8:
+			button.text = "0 / 8"
+
+		else:
+			button.text = f"{str(int(button.text[0:2]) + 1)} / 8"			
 
 class App(App):
 	title = "AquaAlert"
 
 	def on_start(self):
-		self.icon = "logo.png"
+		self.icon = "Logo.png"
 		super().on_start()	
 
 	def on_stop(self):
 		pass
 
 	def build(self):
-		return ScreenManagement()		
+		return ScreenManagement()
+
+# Inicio de la app 
 
 if __name__ == "__main__":
 	App().run()
