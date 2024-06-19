@@ -72,11 +72,11 @@ class Recordatorio(Funciones):
 class Progreso(Funciones):
 	def cantidad_agua(self, button):
 
-		if int(button.text[0:2]) == 8:
-			button.text = "0 / 8"
+		if int(button.text[0:2]) != 8:
+			button.text = f"{str(int(button.text[0:2]) + 1)} / 8"
+			return 			
 
-		else:
-			button.text = f"{str(int(button.text[0:2]) + 1)} / 8"			
+		button.text = "0 / 8"						
 
 class App(App):
 	title = "AquaAlert"
