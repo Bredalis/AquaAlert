@@ -6,8 +6,9 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.clock import Clock
 from plyer import notification
+
+from Temporizador import temporizador
 
 Window.size = (370, 660)
 
@@ -51,23 +52,19 @@ class Recordatorio(Funciones):
     def enviar_notificacion(self, dt):        
         notification.notify(
             title = "AquaAlert - Recordatorio",
-            message = "¡No olvides tomar agua!",
-            timeout = 10
+            message = "¡No olvides tomar agua 😁!",
         )
 
     def notificacion(self):
 
     	try:
-	    	tiempo = self.ids.tiempo.text
+		    tiempo = int(self.ids.tiempo.text)
 
-	    	if len(tiempo) > 6:
-	    		tiempo = "00.00.00"
+		    temporizador(tiempo)
+		    self.enviar_notificacion(1)
 
-	    	Clock.schedule_interval(self.enviar_notificacion, 
-	    		int(tiempo) * int(tiempo))
-
-    	except Exception:
-    		print("Error")
+    	except Exception as e:
+    		print(f"Error: {e}")
 
 class Progreso(Funciones):
 	def cantidad_agua(self, button):
@@ -84,9 +81,6 @@ class App(App):
 	def on_start(self):
 		self.icon = "Logo.png"
 		super().on_start()	
-
-	def on_stop(self):
-		pass
 
 	def build(self):
 		return ScreenManagement()
