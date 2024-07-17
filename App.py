@@ -8,6 +8,9 @@ from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager, Screen
 from plyer import notification
 
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+
 from Temporizador import temporizador
 
 Window.size = (370, 660)
@@ -20,6 +23,7 @@ Builder.load_string("""
     Home:
     Recordatorio:
     Progreso:
+    InicioSeccion:    
 """)
 
 # Archivo de cada interfaz
@@ -27,6 +31,7 @@ Builder.load_string("""
 Builder.load_file("Home.kv")
 Builder.load_file("Recordatorio.kv")
 Builder.load_file("Progreso.kv")
+Builder.load_file("Inicio_Seccion.kv")
 
 class ScreenManagement(ScreenManager):
     pass
@@ -43,10 +48,16 @@ class Funciones(BoxLayout, Screen):
 	def pagina_progreso(self):
 		self.manager.current = "progreso"
 
+	def pagina_inicio_seccion(self):
+		self.manager.current = "inicio_seccion"
+
 # Estructura de la app
 
 class Home(Funciones):
-	pass
+	def boton_inicio_seccion(self, nombre):
+
+		# Renombrar el boton
+		self.ids.inicio_seccion.text = nombre
 
 class Recordatorio(Funciones):
     def enviar_notificacion(self, dt):        
@@ -73,7 +84,41 @@ class Progreso(Funciones):
 			button.text = f"{str(int(button.text[0:2]) + 1)} / 8"
 			return 			
 
-		button.text = "0 / 8"						
+		button.text = "0 / 8"	
+
+class InicioSeccion(Funciones):
+	def guardar_datos(self):
+
+		try:
+
+			# Crear y conectar la bbdd remota
+	
+			url = "mongodb+srv://bredalisgautreaux:ItF6fAeKDLNFpBAD@cluster0.3myzkvu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+			cliente = MongoClient(url, server_api = ServerApi("1"))
+			db = cliente["AquaAlert"]
+			coleccion = db["Usuario"]
+
+			# Obtener los datos del usuario
+	 
+			nombre = self.ids.nombre.text
+			contraseña = self.ids.contraseña.text
+
+			# Insertar datos
+
+			documento = {"Nombre": nombre, "Contraseña": contraseña}
+			coleccion.insert_one(documento)
+
+			# Redireccionar a la pagina Home
+			
+			home_screen = self.manager.get_screen("home")
+			home_screen.boton_inicio_seccion(nombre)
+            			
+			self.pagina_principal()
+
+			print("¡La coneccion fue un exito!")
+
+		except Exception as e:
+		    print("Error:", e)
 
 class App(App):
 	title = "AquaAlert"
