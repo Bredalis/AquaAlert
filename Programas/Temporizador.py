@@ -13,5 +13,3 @@ def temporizador(minutos):
 		time.sleep(1)
 
 		segundos_totales -= 1
-
-	print("¡Tiempo terminado!")
