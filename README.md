@@ -10,8 +10,8 @@
 <img src="https://i.pinimg.com/236x/5a/11/b7/5a11b79030ccd2aaea5d569595746362.jpg" width="60%">
 
 <p>
-  Este repositorio contiene una colección de programas simples escritos en Python junto a la librería de Kivy. La aplicación 
-  esta dividida en 3 secciones: 
+  Este repositorio contiene una colección de programas simples escritos en Python junto a 
+  la librería de Kivy. <br> La aplicación esta dividida en 3 secciones: 
   
   Home: la ventana de inicio. <br>
   Recordatorio: para que el usuario ponga en que tiempo la app debe notificarlo para beber agua. <br>
@@ -36,16 +36,16 @@
     
 ## Uso ⚙️
 
-Para ejecutar un programa, simplemente navega al directorio del programa y ejecuta el archivo Python correspondiente (App.py). Por ejemplo:
+Para ejecutar un programa, simplemente navega al directorio del programa y ejecuta el <br> archivo Python correspondiente. Por ejemplo:
 
 1. Ubicate en la ruta del programa:
     ```
-    cd ruta-del-programa
+    cd AquaAlert/Programas
     ```
      
 2. Ejecuta el programa:
     ```
-    python nombre-del-programa.py
+    python App.py
     ```
 
 ## Licencia 📜
