@@ -33,7 +33,7 @@
     ```
     git clone https://github.com/Bredalis/AquaAlert.git
     ```
-    
+
 ## Uso ⚙️
 
 Para ejecutar un programa, simplemente navega al directorio del programa y ejecuta el <br> archivo Python correspondiente. Por ejemplo:
@@ -47,6 +47,8 @@ Para ejecutar un programa, simplemente navega al directorio del programa y ejecu
     ```
     python App.py
     ```
+
+<br>
 
 ## Licencia 📜
 
