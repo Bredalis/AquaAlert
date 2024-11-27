@@ -1,0 +1,88 @@
+<InicioSeccion>:
+	name: "inicio_seccion"
+
+	BoxLayout:
+		Image:
+			source: "Assets/Fondo_Inicio_Seccion.png"
+
+			Label:
+				id: mensaje_error
+				text: ""
+				pos: 150, 500,
+				color: (0.071, 0.416, 0.427) 
+				font_size: 20
+				font_name: "Assets/MulledWineSeason.otf"
+
+			Image:
+				source: "Assets/Logo.png"
+				pos: 145, 420
+
+			TextInput:
+				id: nombre
+				hint_text: "Nombre"
+				hint_text_color: (0.071, 0.416, 0.427)
+				foreground_color: (0.071, 0.416, 0.427)
+				background_color: (0.8314, 0.9098, 0.9098)
+				pos: 135, 340,
+				size_hint: None, None
+				width: 130
+				height: 40
+				halign: "center"
+				font_name: "Assets/MulledWineSeason.otf"
+				font_size: 20
+
+			TextInput:
+				id: contraseña
+				hint_text: "Contraseña"
+				password: True
+				hint_text_color: (0.071, 0.416, 0.427)
+				foreground_color: (0.071, 0.416, 0.427)
+				background_color: (0.8314, 0.9098, 0.9098)
+				pos: 135, 280,
+				size_hint: None, None
+				width: 130
+				height: 40
+				halign: "center"
+				font_name: "Assets/MulledWineSeason.otf"
+				font_size: 20
+
+			Button:
+				text: "Acceso"
+				on_press: root.guardar_datos()
+				pos: 125, 195,			
+    			color:  (0.071, 0.416, 0.427)
+				font_name: "Assets/MulledWineSeason.otf" 
+				size_hint: None, None				   			
+				width: 150
+				height: 40
+				background_color: (212, 232, 232)
+
+			Button:
+				id: inicio_seccion
+				text: "Inicio de Sección"
+				on_press: root.pagina_inicio_seccion()			
+				pos: 200, 590,
+				size_hint: None, None
+    			color:  (0.071, 0.416, 0.427)
+				font_name: "Assets/MulledWineSeason.otf"    			
+				width: 150
+				height: 40
+				background_color: (212, 232, 232)
+
+			Button:
+				background_normal: "Assets/Home.png"
+				background_down: "Assets/Home.png"
+				pos: 20, 30,
+				on_press: root.pagina_principal()
+
+			Button:
+				background_normal: "Assets/Recordatorio.png"
+				background_down: "Assets/Recordatorio.png"
+				on_press: root.pagina_recordatorio()	
+				pos: 140, 30
+
+			Button:
+				background_normal: "Assets/Progreso.png"
+				background_down: "Assets/Progreso.png"
+				on_press: root.pagina_progreso()
+				pos: 245, 30
