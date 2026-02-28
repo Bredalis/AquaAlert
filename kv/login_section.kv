@@ -1,0 +1,88 @@
+<LoginSection>:
+    name: "login_section"
+
+    BoxLayout:
+        Image:
+            source: "assets/images/login_background.png"
+
+            Label:
+                id: error_message
+                text: ""
+                pos: 150, 500,
+                color: (0.071, 0.416, 0.427) 
+                font_size: 20
+                font_name: "assets/fonts/MulledWineSeason.otf"
+
+            Image:
+                source: "assets/images/logo.png"
+                pos: 145, 420
+
+            TextInput:
+                id: name
+                hint_text: "Name"
+                hint_text_color: (0.071, 0.416, 0.427)
+                foreground_color: (0.071, 0.416, 0.427)
+                background_color: (0.8314, 0.9098, 0.9098)
+                pos: 135, 340,
+                size_hint: None, None
+                width: 130
+                height: 40
+                halign: "center"
+                font_name: "assets/fonts/MulledWineSeason.otf"
+                font_size: 20
+
+            TextInput:
+                id: password
+                hint_text: "Password"
+                password: True
+                hint_text_color: (0.071, 0.416, 0.427)
+                foreground_color: (0.071, 0.416, 0.427)
+                background_color: (0.8314, 0.9098, 0.9098)
+                pos: 135, 280,
+                size_hint: None, None
+                width: 130
+                height: 40
+                halign: "center"
+                font_name: "assets/fonts/MulledWineSeason.otf"
+                font_size: 20
+
+            Button:
+                text: "Login"
+                on_press: root.save_data()
+                pos: 125, 195,            
+                color: (0.071, 0.416, 0.427)
+                font_name: "assets/fonts/MulledWineSeason.otf" 
+                size_hint: None, None                              
+                width: 150
+                height: 40
+                background_color: (212, 232, 232)
+
+            Button:
+                id: login_section
+                text: "Login Section"
+                on_press: root.login_section_page()            
+                pos: 200, 590,
+                size_hint: None, None
+                color: (0.071, 0.416, 0.427)
+                font_name: "assets/fonts/MulledWineSeason.otf"                
+                width: 150
+                height: 40
+                background_color: (212, 232, 232)
+
+            Button:
+                background_normal: "assets/images/home_image.png"
+                background_down: "assets/images/home_image.png"
+                pos: 20, 30,
+                on_press: root.home_page()
+
+            Button:
+                background_normal: "assets/images/reminder_image.png"
+                background_down: "assets/images/reminder_image.png"
+                on_press: root.reminder_page()    
+                pos: 140, 30
+
+            Button:
+                background_normal: "assets/images/progress_image.png"
+                background_down: "assets/images/progress_image.png"
+                on_press: root.progress_page()
+                pos: 245, 30

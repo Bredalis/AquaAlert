@@ -1,0 +1,79 @@
+<Reminder>:
+    name: "reminder"
+
+    BoxLayout:
+        Image:
+            source: "assets/images/reminder_background.png"
+
+            Label:
+                text: "Reminder"
+                pos: 150, 450,
+                color: (0.071, 0.416, 0.427) 
+                font_size: 30
+                font_name: "assets/fonts/MulledWineSeason.otf"
+
+            Label:
+                text: "Custom"
+                pos: 150, 420,
+                color: (0.071, 0.416, 0.427) 
+                font_size: 30
+                font_name: "assets/fonts/MulledWineSeason.otf"
+
+            TextInput:
+                id: time
+                hint_text: "00.00.00"
+                hint_text_color: (0.071, 0.416, 0.427)
+                foreground_color: (0.071, 0.416, 0.427)
+                background_color: (0.8314, 0.9098, 0.9098)
+                pos: 135, 330
+                size_hint: None, None
+                width: 130
+                height: 40
+                halign: "center"
+                font_name: "assets/fonts/MulledWineSeason.otf"
+                font_size: 20
+
+            Label:
+                id: error_message_1
+                text: ""
+                pos: 50, 220,
+                color: (0.071, 0.416, 0.427) 
+                font_size: 20
+                font_name: "assets/fonts/MulledWineSeason.otf"
+
+            Label:
+                id: error_message_2
+                text: ""
+                pos: 50, 190,
+                color: (0.071, 0.416, 0.427) 
+                font_size: 20
+                font_name: "assets/fonts/MulledWineSeason.otf"
+
+            Button:
+                text: "Notify Me"
+                pos: 190, 230,
+                size_hint: None, None
+                color: (0.071, 0.416, 0.427)
+                font_name: "assets/fonts/MulledWineSeason.otf"
+                width: 100
+                height: 40
+                on_press: root.notification()
+                background_color: (212, 232, 232)
+
+            Button:
+                background_normal: "assets/images/home_image.png"
+                background_down: "assets/images/home_image.png"
+                pos: 20, 30,
+                on_press: root.home_page()
+
+            Button:
+                background_normal: "assets/images/reminder_image.png"
+                background_down: "assets/images/reminder_image.png"
+                on_press: root.reminder_page()    
+                pos: 140, 30
+
+            Button:
+                background_normal: "assets/images/progress_image.png"
+                background_down: "assets/images/progress_image.png"
+                on_press: root.progress_page()
+                pos: 245, 30

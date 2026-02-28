@@ -1,0 +1,57 @@
+<Progress>:
+    name: "progress"
+
+    BoxLayout:
+        Image:
+            source: "assets/images/progress_background.png"
+
+            Label:
+                text: "Your Progress"
+                pos: 150, 450,
+                color: (0.071, 0.416, 0.427) 
+                font_size: 30
+                font_name: "assets/fonts/MulledWineSeason.otf"
+
+            Label:
+                text: "Have you drunk"
+                pos: 150, 340,
+                color: (0.071, 0.416, 0.427) 
+                font_size: 30
+                font_name: "assets/fonts/MulledWineSeason.otf"
+
+            Label:
+                text: "water?"
+                pos: 150, 310,
+                color: (0.071, 0.416, 0.427) 
+                font_size: 30
+                font_name: "assets/fonts/MulledWineSeason.otf"
+
+            Button:
+                text: "0 / 8"
+                pos: 80, 230,
+                color: (0.071, 0.416, 0.427) 
+                background_color: (212, 232, 232)
+                font_size: 30
+                size_hint: None, None
+                width: 110
+                height: 40
+                font_name: "assets/fonts/MulledWineSeason.otf"
+                on_press: root.water_amount(self)
+
+            Button:
+                background_normal: "assets/images/home_image.png"
+                background_down: "assets/images/home_image.png"
+                pos: 20, 30,
+                on_press: root.home_page()
+
+            Button:
+                background_normal: "assets/images/reminder_image.png"
+                background_down: "assets/images/reminder_image.png"
+                on_press: root.reminder_page()    
+                pos: 140, 30
+
+            Button:
+                background_normal: "assets/images/progress_image.png"
+                background_down: "assets/images/progress_image.png"
+                on_press: root.progress_page()
+                pos: 245, 30

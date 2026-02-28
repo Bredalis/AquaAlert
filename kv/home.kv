@@ -1,0 +1,50 @@
+<Home>:
+    name: "home"
+
+    BoxLayout:
+        Image:
+            source: "assets/images/home_background.png"
+
+            Label:
+                text: "Drink water regularly"
+                pos: 150, 500,
+                color: (0.071, 0.416, 0.427) 
+                font_size: 25
+                font_name: "assets/fonts/MulledWineSeason.otf"
+
+            Label:
+                text: "throughout the day."
+                pos: 150, 475
+                color: (0.071, 0.416, 0.427)
+                font_size: 25
+                font_name: "assets/fonts/MulledWineSeason.otf"
+
+            Button:
+                id: login_section
+                text: "Login Section"
+                on_press: root.login_section_page()            
+                pos: 200, 590
+                size_hint: None, None
+                color: (0.071, 0.416, 0.427)
+                font_name: "assets/fonts/MulledWineSeason.otf"                
+                width: 150
+                height: 40
+                background_color: (212, 232, 232)
+
+            Button:
+                background_normal: "assets/images/home_image.png"
+                background_down: "assets/images/home_image.png"
+                pos: 20, 30,
+                on_press: root.home_page()
+
+            Button:
+                background_normal: "assets/images/reminder_image.png"
+                background_down: "assets/images/reminder_image.png"
+                on_press: root.reminder_page()    
+                pos: 140, 30
+
+            Button:
+                background_normal: "assets/images/progress_image.png"
+                background_down: "assets/images/progress_image.png"
+                on_press: root.progress_page()
+                pos: 245, 30
